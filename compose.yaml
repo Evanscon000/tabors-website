@@ -1,0 +1,11 @@
+services:
+  postgres-db:
+    container_name: tabor-website
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: tabor_website
+    ports:
+      - "5432:5432"
