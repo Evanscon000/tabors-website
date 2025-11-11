@@ -9,7 +9,6 @@ const NailsForSale = () => {
         setTableOpen(!tableOpen)
     }
 
-
     return (
         <div>
             <button
@@ -22,6 +21,5 @@ const NailsForSale = () => {
         </div>
     )
 }
-
 
 export default NailsForSale

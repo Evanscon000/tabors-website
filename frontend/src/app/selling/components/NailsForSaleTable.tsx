@@ -1,6 +1,6 @@
 'use client';
 import React, {useEffect, useState} from 'react';
-import {getNailsForTabor} from "@/clients/sellingClient";
+import {getAllNails} from "@/clients/sellingClient";
 
 type NailsForSale = {
     id: string;
@@ -22,15 +22,19 @@ const NailsForSaleTable = () => {
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        getNailsForTabor().then(setRows).catch(event => setError(event.message));
+        console.log(error)
+        getAllNails().then(setRows).catch(event => setError(event.message));
     }, []);
 
     if(error) return <div role="alert">Failed to load nails</div>
     if (!rows) return <div role="status">Loading</div>;
 
     return(
-        <table role="table" aria-label="currentNailsForSaleTable" className="min-w-full border-collapse">
-            <thead aria-label="Table Header">
+        <table role="table"
+               aria-label="currentNailsForSaleTable"
+               className="border-separate border-spacing-x-6 border-2">
+            <thead
+                aria-label="Table Header">
                 <tr>
                     <th>Style</th>
                     <th>Theme</th>

@@ -12,7 +12,7 @@ const sample = [
 
 beforeEach(() => {
     vi.restoreAllMocks();
-    vi.spyOn(sellingClient, 'getNailsForTabor').mockResolvedValue(sample as any);
+    vi.spyOn(sellingClient, 'getAllNails').mockResolvedValue(sample as any);
 });
 
 describe('Nails for sale page', () => {

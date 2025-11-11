@@ -1,16 +1,15 @@
-import axios from "axios";
+import axios from 'axios';
 
-export type NailForSale = {
+export type SellingDto = {
     id: string;
     style: string;
-    color: string;
     theme: string;
+    color: string;
     size: string;
     priceCents: number;
     qty: number;
 };
-
-export const getNailsForTabor = async (): Promise<NailForSale[]> => {
-    const resp = await axios.get('/api/tabor/nails')
-    return resp.data;
+export async function getAllNails(): Promise<SellingDto[]> {
+    const { data } = await axios.get('http://localhost:8080/api/tabor/selling');
+    return data;
 }
