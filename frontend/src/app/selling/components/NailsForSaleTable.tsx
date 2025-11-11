@@ -1,12 +1,13 @@
 'use client';
 import React, {useEffect, useState} from 'react';
+import {getNailsForTabor} from "@/app/selling/client";
 
 type NailsForSale = {
     id: string;
     style: string;
     theme: string;
     color: string;
-    size: number;
+    size: string;
     priceCents: number;
     qty: number;
 };
@@ -21,10 +22,7 @@ const NailsForSaleTable = () => {
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        fetch('/api/tabor/nails')
-            .then(r => r.ok ? r.json() : Promise.reject(new Error(String(r.status))))
-            .then(setRows)
-            .catch(e => setError(e.message));
+        getNailsForTabor().then(setRows).catch(event => setError(event.message));
     }, []);
 
     if(error) return <div role="alert">Failed to load nails</div>
@@ -34,12 +32,12 @@ const NailsForSaleTable = () => {
         <table role="table" aria-label="currentNailsForSaleTable" className="min-w-full border-collapse">
             <thead aria-label="Table Header">
                 <tr>
-                    <th scope="col">Style</th>
-                    <th scope="col">Theme</th>
-                    <th scope="col">Color</th>
-                    <th scope="col">Size</th>
-                    <th scope="col">PriceCents</th>
-                    <th scope="col">Qty</th>
+                    <th>Style</th>
+                    <th>Theme</th>
+                    <th>Color</th>
+                    <th>Size</th>
+                    <th>Price</th>
+                    <th>Qty</th>
                 </tr>
             </thead>
             <tbody>
@@ -57,5 +55,4 @@ const NailsForSaleTable = () => {
         </table>
     )
 }
-
 export default NailsForSaleTable;
