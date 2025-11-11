@@ -1,6 +1,6 @@
 'use client';
 import React, {useEffect, useState} from 'react';
-import {getNailsForTabor} from "@/app/selling/client";
+import {getNailsForTabor} from "@/clients/sellingClient";
 
 type NailsForSale = {
     id: string;
@@ -26,7 +26,7 @@ const NailsForSaleTable = () => {
     }, []);
 
     if(error) return <div role="alert">Failed to load nails</div>
-    if (!rows) return <div aria-busy="true">Loading...</div>;
+    if (!rows) return <div role="status">Loading</div>;
 
     return(
         <table role="table" aria-label="currentNailsForSaleTable" className="min-w-full border-collapse">
@@ -47,7 +47,7 @@ const NailsForSaleTable = () => {
                     <td>{r.theme}</td>
                     <td>{r.color}</td>
                     <td>{r.size}</td>
-                    <td>{r.priceCents}</td>
+                    <td>{formatPrice(r.priceCents)}</td>
                     <td>{r.qty}</td>
                 </tr>
             ))}
