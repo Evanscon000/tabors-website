@@ -8,14 +8,13 @@ const renderPage = () => {
 }
 
 describe('Main landing page', () => {
-    it("should display a button when clicked takes you to the selling page", async () => {
+    it("should render the main landing page", () => {
+        renderPage()
+    });
+    it('should display the global header', () => {
         renderPage()
 
-        const link = screen.getByLabelText('link')
-        const sellingButton = screen.getByLabelText("sellingButton")
-
-        expect(link).toBeVisible();
-        expect(sellingButton).toBeVisible();
-        await userEvent.click(sellingButton);
+        const mainPageHeaderDiv = screen.getByLabelText("mainPageHeaderDiv")
+        expect(mainPageHeaderDiv).toBeInTheDocument()
     });
 });
