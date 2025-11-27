@@ -1,7 +1,6 @@
 import {beforeEach, describe, expect, vi} from "vitest";
 import {render, screen} from "@testing-library/react";
 import PageHeader from "@/app/components/PageHeader";
-import userEvent from "@testing-library/user-event";
 
 beforeEach(() => {
     vi.restoreAllMocks()

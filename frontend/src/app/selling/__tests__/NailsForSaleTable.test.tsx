@@ -1,4 +1,4 @@
-import { render, screen, within, waitFor } from '@testing-library/react'
+import {render, screen, within} from '@testing-library/react'
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import * as client from '@/clients/sellingClient'
 import NailsForSaleTable from '@/app/selling/components/NailsForSaleTable'
