@@ -30,7 +30,7 @@ const NailsForSaleTable = () => {
         qty: ""
     })
 
-    const handleGroupChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const {name, value} = e.target;
 
         setForm(prev => ({
@@ -38,6 +38,7 @@ const NailsForSaleTable = () => {
             [name]: value,
         }))
     }
+
 
     const handleAddNewNailsButton = () => {
         setNewNailsModal(!newNailsModal)
@@ -89,38 +90,43 @@ const NailsForSaleTable = () => {
                     <div className={"flex flex-col space-y-4 text-black"}>
                         <input name={"style"}
                                placeholder={"Style"}
-                               onChange={handleGroupChange}
+                               onChange={handleFormChange}
                                value={form.style}
                         >
                         </input>
                         <input name={"theme"}
                                placeholder={"Theme"}
-                               onChange={handleGroupChange}
+                               onChange={handleFormChange}
                                value={form.theme}
+
                         >
                         </input>
                         <input name = {"color"}
                                placeholder={"Color"}
-                               onChange={handleGroupChange}
+                               onChange={handleFormChange}
                                value={form.color}
+
                         >
                         </input>
                         <input name={"size"}
                                placeholder={"Size"}
-                               onChange={handleGroupChange}
+                               onChange={handleFormChange}
                                value={form.size}
+
                         >
                         </input>
                         <input name={"priceCents"}
                                placeholder={"PriceInCents"}
-                               onChange={handleGroupChange}
+                               onChange={handleFormChange}
                                value={form.priceCents}
+
                         >
                         </input>
                         <input name={"qty"}
                                placeholder={"Quantity"}
-                               onChange={handleGroupChange}
+                               onChange={handleFormChange}
                                value={form.qty}
+
                         >
                         </input>
                     </div>
